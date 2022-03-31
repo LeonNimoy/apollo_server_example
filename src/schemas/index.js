@@ -5,10 +5,12 @@ const typeDefs = gql`
     type Book {
         title: String
         author: String
+        publication_year:Int
     }
 
     type Query {
-        books: [Book]
+        getAllBooks: [Book]
+        getABook(title:String!): [Book]
     }
 `
 
