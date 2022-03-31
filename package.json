@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node src/index.js"
+    "start": "node-dev src/index.js"
   },
   "keywords": [],
   "author": "",
@@ -12,5 +12,8 @@
   "dependencies": {
     "apollo-server": "^3.6.7",
     "graphql": "^16.3.0"
+  },
+  "devDependencies": {
+    "node-dev": "^7.4.2"
   }
 }
