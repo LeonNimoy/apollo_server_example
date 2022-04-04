@@ -7,6 +7,7 @@ const typeDefs = gql`
         title: String
         author: String
         publication_year: Int
+                type: BookType
     }
 
     input BookInput{
@@ -14,6 +15,18 @@ const typeDefs = gql`
         title: String
         author: String
         publication_year: Int
+        type: BookType
+    }
+    """
+    This is an enum example.
+    """
+    enum BookType{
+        """
+        Usually, this book type is the most expensive one.
+        """
+        HARDCOVER
+        PAPERBACK
+        EBOOK
     }
 
     type Query {
@@ -23,7 +36,8 @@ const typeDefs = gql`
     }
 
     type Mutation {
-        updateBook(id:ID!, input: BookInput): Book!
+        updateABook(id:ID!, input: BookInput): Book!
+        createABook(input:BookInput): Book!
     }
 `
 
