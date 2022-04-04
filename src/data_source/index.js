@@ -23,9 +23,9 @@ class BooksDataSource {
 
     updateBook(id, input) {
         const book = books.find(book => book.id === id)
-        const inputKey = Object.keys(input)
+        const inputKeys = Object.keys(input)
         const inputValues = Object.values(input)
-        book[`${inputKey[0]}`] = inputValues[0]
+        book[`${inputKeys[0]}`] = inputValues[0]
         return book
     }
 }
