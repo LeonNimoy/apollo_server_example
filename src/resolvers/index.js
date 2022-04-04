@@ -1,21 +1,21 @@
-const books = require('../data_source')
+const BooksDataSource = require('../data_source/index')
 
+const bookDataSource = new BooksDataSource()
 
 const resolvers = {
     Query: {
-        getAllBooks: () => books,
-        getABookByTitle: (_, {title}) => {
-            return books.filter(book => book.title === title)
-        },
-        getABook: (_, {input}) => {
-            return books.filter(book => {
-                const bookObjectValues = Object.values(book)
-                const inputValue = Object.values(input)
+        getAllBooks: () => {
+            return bookDataSource.getAllBooks()
+        }, getABookByTitle: (_, {title}) => {
+            return bookDataSource.getABookByTitle(title)
+        }, getABook: (_, {input}) => {
+            return bookDataSource.getABook(input)
+        }
+    },
 
-                if (bookObjectValues.includes(inputValue[0])) {
-                    return book
-                }
-            })
+    Mutation: {
+        updateBook: (_, {id, input}) => {
+            return bookDataSource.updateBook(id, input)
         }
     }
 
