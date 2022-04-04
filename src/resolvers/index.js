@@ -17,7 +17,7 @@ const resolvers = {
         updateABook: (_, {id, input}) => {
             return bookDataSource.updateABook(id, input)
         },
-        createABook: (_,{input}) => {
+        createABook: (_, {input}) => {
             return bookDataSource.createABook(input)
         }
     }

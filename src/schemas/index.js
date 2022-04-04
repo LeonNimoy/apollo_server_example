@@ -7,7 +7,7 @@ const typeDefs = gql`
         title: String
         author: String
         publication_year: Int
-                type: BookType
+        type: BookType
     }
 
     input BookInput{
