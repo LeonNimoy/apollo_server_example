@@ -14,8 +14,11 @@ const resolvers = {
     },
 
     Mutation: {
-        updateBook: (_, {id, input}) => {
-            return bookDataSource.updateBook(id, input)
+        updateABook: (_, {id, input}) => {
+            return bookDataSource.updateABook(id, input)
+        },
+        createABook: (_,{input}) => {
+            return bookDataSource.createABook(input)
         }
     }
 
