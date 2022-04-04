@@ -1,0 +1,21 @@
+const books = [
+    {
+        id: '1',
+        title: 'The Hobbit',
+        author: 'J.R.R. Tolkien',
+        publication_year: 1937
+    },
+    {
+        id: '2',
+        title: 'The Lord of The Rings',
+        author: 'J.R.R. Tolkien',
+        publication_year: 1954
+    }, {
+        id: '3',
+        title: 'The Hitchhiker\'s Guide to the Galaxy',
+        author: 'Douglas Adams',
+        publication_year: 2022
+    },
+];
+
+module.exports = books
