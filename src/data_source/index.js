@@ -13,8 +13,6 @@ class BooksDataSource {
         return books.filter(book => {
             const bookObjectValues = Object.values(book)
             const inputValue = Object.values(input)
-
-            console.log(bookObjectValues, inputValue)
             if (bookObjectValues.includes(inputValue[0])) {
                 return book
             }
