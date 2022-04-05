@@ -4,24 +4,30 @@ const bookDataSource = new BooksDataSource()
 
 const resolvers = {
     Query: {
-        getAllBooks: () => {
-            return bookDataSource.getAllBooks()
-        }, getABookByTitle: (_, {title}) => {
-            return bookDataSource.getABookByTitle(title)
-        }, getABook: (_, {input}) => {
-            return bookDataSource.getABook(input)
+        getAllTexts: () => {
+            return bookDataSource.getAllTexts()
+        }, getATextByTitle: (_, {title}) => {
+            return bookDataSource.getATextByTitle(title)
+        }, getAText: (_, {input}) => {
+            return bookDataSource.getAText(input)
         }
     },
 
     Mutation: {
-        updateABook: (_, {id, input}) => {
-            return bookDataSource.updateABook(id, input)
+        updateAText: (_, {id, input}) => {
+            return bookDataSource.updateAText(id, input)
         },
-        createABook: (_, {input}) => {
-            return bookDataSource.createABook(input)
+        createAText: (_, {input}) => {
+            return bookDataSource.createAText(input)
+        }
+    },
+
+    Text: {
+        __resolveType(text) {
+            if (text.type) return 'Book'
+            return 'Article'
         }
     }
-
 }
 
 module.exports = resolvers
