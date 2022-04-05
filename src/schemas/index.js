@@ -2,12 +2,25 @@ const {gql} = require('apollo-server')
 
 
 const typeDefs = gql`
-    type Book {
-        id: ID
-        title: String
-        author: String
+    interface Text {
+        id: ID!
+        title: String!
+        author: String!
+    }
+
+    type Book implements Text {
+        id: ID!
+        title: String!
+        author: String!
         publication_year: Int
-        type: BookType
+        type: BookType!
+    }
+
+    type Article implements Text {
+        id: ID!
+        title: String!
+        author: String!
+        journal: String!
     }
 
     input BookInput{
@@ -30,14 +43,14 @@ const typeDefs = gql`
     }
 
     type Query {
-        getAllBooks: [Book]
-        getABookByTitle(title:String): [Book]
-        getABook(input:BookInput): [Book]
+        getAllTexts: [Text]
+        getATextByTitle(title:String): [Text]
+        getAText(input:BookInput): [Text]
     }
 
     type Mutation {
-        updateABook(id:ID!, input: BookInput): Book!
-        createABook(input:BookInput): Book!
+        updateAText(id:ID!, input: BookInput): Text!
+        createAText(input:BookInput): Text!
     }
 `
 
