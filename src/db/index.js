@@ -1,4 +1,4 @@
-const books = [
+const texts = [
     {
         id: '1',
         title: 'The Hobbit',
@@ -12,13 +12,21 @@ const books = [
         author: 'J.R.R. Tolkien',
         publication_year: 1954,
         type: 'PAPERBACK'
-    }, {
+    },
+    {
         id: '3',
         title: 'The Hitchhiker\'s Guide to the Galaxy',
         author: 'Douglas Adams',
         publication_year: 2022,
         type: 'EBOOK'
     },
+    {
+        id: '4',
+        title: 'Zur Theorie der Brownschen Bewegung',
+        author: 'A. Einstein',
+        publication_year: 1905,
+        journal: 'Annalen der Physik'
+    },
 ];
 
-module.exports = books
+module.exports = texts
