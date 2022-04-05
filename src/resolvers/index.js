@@ -3,30 +3,17 @@ const BooksDataSource = require('../data_source/index')
 const bookDataSource = new BooksDataSource()
 
 const resolvers = {
+    Reader: {
+        __resolveType(reader) {
+            if (reader.type) return 'Book'
+            return 'Article'
+        }
+    },
+
     Query: {
         getAllTexts: () => {
             return bookDataSource.getAllTexts()
-        }, getATextByTitle: (_, {title}) => {
-            return bookDataSource.getATextByTitle(title)
-        }, getAText: (_, {input}) => {
-            return bookDataSource.getAText(input)
-        }
-    },
-
-    Mutation: {
-        updateAText: (_, {id, input}) => {
-            return bookDataSource.updateAText(id, input)
         },
-        createAText: (_, {input}) => {
-            return bookDataSource.createAText(input)
-        }
-    },
-
-    Text: {
-        __resolveType(text) {
-            if (text.type) return 'Book'
-            return 'Article'
-        }
     }
 }
 
