@@ -5,13 +5,13 @@ const typeDefs = gql`
     interface Text {
         id: ID!
         title: String!
-        author: String!
+        authorId: Author!
     }
 
     type Book implements Text {
         id: ID!
         title: String!
-        author: String!
+        authorId: Author!
         publication_year: Int
         type: BookType!
     }
@@ -19,8 +19,15 @@ const typeDefs = gql`
     type Article implements Text {
         id: ID!
         title: String!
-        author: String!
+        authorId: Author!
         journal: String!
+    }
+
+    type Author {
+        id: ID!
+        name: String
+        age: Int
+        alive: Boolean
     }
 
     input BookInput{
