@@ -1,4 +1,5 @@
-const texts = require("../db");
+const texts = require("../db/text");
+const authors = require("../db/author");
 
 class BooksDataSource {
     getAllTexts() {
@@ -17,6 +18,10 @@ class BooksDataSource {
                 return book
             }
         })
+    }
+
+    getAAuthor(id) {
+        return authors.find(author => author.id === id)
     }
 
     updateAText(id, input) {
