@@ -26,8 +26,19 @@ const resolvers = {
         __resolveType(text) {
             if (text.type) return 'Book'
             return 'Article'
+        },
+    },
+    Book: {
+        authorId(book) {
+            return bookDataSource.getAAuthor(book.author)
+        }
+    },
+    Article: {
+        authorId(article) {
+            return bookDataSource.getAAuthor(article.author)
         }
     }
+
 }
 
 module.exports = resolvers
